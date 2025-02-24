@@ -1,0 +1,37 @@
+services:
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: open-webui
+    restart: unless-stopped
+    ports:
+      - "3000:8080"
+    volumes:
+      - open-webui:/app/backend/data
+
+  jupyter-notebook:
+    image: jupyter/base-notebook
+    container_name: jupyter-notebook
+    restart: unless-stopped
+    ports:
+      - "8888:8888"
+    volumes:
+      - jupyter_data:/home/jovyan/
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - GRANT_SUDO=yes
+      - NB_UID=1000
+      - NB_GID=100
+    command: [
+      "start-notebook.sh",
+      "--NotebookApp.token=jupyter",
+      "--NotebookApp.password=",
+      "--NotebookApp.allow_remote_access=True",
+      "--port=8888",
+      "--ip=0.0.0.0"
+    ]
+
+volumes:
+  open-webui:
+    external: false
+  jupyter_data:
+    external: false
