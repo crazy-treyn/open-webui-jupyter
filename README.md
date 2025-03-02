@@ -1,6 +1,6 @@
 # Open WebUI + Jupyter
 
-This provides a quick and easy way to setup Open WebUI and Jupyter, to leverage a [recently added integration](https://github.com/open-webui/open-webui/releases/tag/v0.5.11) that allows Open WebUI to use Jupyter as the engine for executing Python code generated in chats. 
+Leveraging Docker, this project provides a quick and easy way to setup Open WebUI and Jupyter, to take advantage of a [recently added integration](https://github.com/open-webui/open-webui/releases/tag/v0.5.11) that allows Open WebUI to use Jupyter as the engine for executing Python code generated in chats. 
 
 ## Table of Contents
 - [Overview](#overview)
