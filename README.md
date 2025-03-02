@@ -1,6 +1,6 @@
-# Project Name
+# Open WebUI + Jupyter
 
-[Brief project description goes here]
+This provides a quick and easy way to setup Open WebUI and Jupyter, to leverage a [recently added integration](https://github.com/open-webui/open-webui/releases/tag/v0.5.11) that allows Open WebUI to use Jupyter as the engine for executing Python code generated in chats. 
 
 ## Table of Contents
 - [Overview](#overview)
@@ -26,19 +26,17 @@ Before you begin, ensure you have the following installed:
 
 ## Installation
 
-1. Install Docker CLI if you haven't already
-
-2. Clone the repository:
+1. Clone the repository:
    ```bash
    git clone https://github.com/crazy-treyn/open-webui-jupyter.git
    ```
 
-3. Navigate to the project directory containing the `docker-compose.yml` file:
+2. Navigate to the project directory containing the `docker-compose.yml` file:
    ```bash
    cd [project-directory]
    ```
 
-4. Start the Docker containers:
+3. Start the Docker containers:
    ```bash
    docker compose up -d
    ```
@@ -64,7 +62,7 @@ Before you begin, ensure you have the following installed:
 1. Navigate to Open WebUI (http://localhost:3000)
 2. Create an admin account
 3. Configure Code Execution:
-   - Click your Name (bottom left corner) > Settings > Admin Settings > Code Execution
+   - Click your `Name (bottom left corner) > Settings > Admin Settings > Code Execution`
    - Configure both Code Execution and Code Interpreter engines:
      - Change engine from pyodide to jupyter
      - Set Jupyter URL to http://host.docker.internal:8888
@@ -73,8 +71,8 @@ Before you begin, ensure you have the following installed:
      - Save changes
 
 4. Set up API Connections & Models:
-   - Go to Settings > Admin Settings > Connections/Models
-   - [Add specific configuration instructions]
+   - Go to `Settings > Admin Settings > Connections` and add API connections.
+   - Go to `Settings > Admin Settings > Models` and enable the Models you want accessible to interact with inside Open WebUI.
 
 ## Usage
 
