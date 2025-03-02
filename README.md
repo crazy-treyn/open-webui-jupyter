@@ -33,7 +33,7 @@ Before you begin, ensure you have the following installed:
 
 2. Navigate to the project directory containing the `docker-compose.yml` file:
    ```bash
-   cd [project-directory]
+   cd open-webui-jupyter
    ```
 
 3. Start the Docker containers:
