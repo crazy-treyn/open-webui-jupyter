@@ -7,27 +7,22 @@
 - [Features](#features)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
-- [Usage](#usage)
 - [Configuration](#configuration)
-- [Development](#development)
-- [Contributing](#contributing)
-- [License](#license)
-- [Support](#support)
+- [Usage](#usage)
 
 ## Overview
 
-[Provide a comprehensive overview of what your project does and its main purpose]
+The purpose of this project is very simple. Provide a way to very easily spin up both an instance of Open WebUI next to an instance of Jupyter to allow for seamless integration of Code execution and Code interpretation within Open WebUI, leveraging Jupyter as the engine.
 
 ## Features
 
-[List the key features and capabilities of your project]
+It's really just a `docker-compose.yml` file that helps setup and install Open WebUI and Jupyter in a Docker container. The `docker-compose.yml` contains necessary parameters to enable remote access of Jupyter as it sets it up. As long as you have both Git and Docker installed, you can simply clone the repo and run `docker compose up -d` in a terminal to install and run the software. The rest of this Readme details how to setup the integration of Open WebUI and Jupyter.
 
 ## Prerequisites
 
 Before you begin, ensure you have the following installed:
-- Docker CLI
+- Docker
 - Git
-- [Any other prerequisites]
 
 ## Installation
 
@@ -35,7 +30,7 @@ Before you begin, ensure you have the following installed:
 
 2. Clone the repository:
    ```bash
-   git clone {insert repo here}
+   git clone https://github.com/crazy-treyn/open-webui-jupyter.git
    ```
 
 3. Navigate to the project directory containing the `docker-compose.yml` file:
@@ -52,19 +47,24 @@ Before you begin, ensure you have the following installed:
    - Open WebUI: http://localhost:3000
    - Jupyter: http://localhost:8888 (token: `jupyter`)
 
-   To stop the services:
+   To stop the services at any time, run:
    ```bash
    docker compose down
    ```
 
+   To upgrade to the latest version of Open WebUI and Jupyter, run:
+   ```bash
+   docker compose down && docker compose pull && docker compose up -d
+   ```
+
 ## Configuration
 
-### Setting up Open WebUI
+### Setting up Open WebUI to use Juypter for Python code execution
 
 1. Navigate to Open WebUI (http://localhost:3000)
 2. Create an admin account
 3. Configure Code Execution:
-   - Click your Name > Settings > Admin Settings > Code Execution
+   - Click your Name (bottom left corner) > Settings > Admin Settings > Code Execution
    - Configure both Code Execution and Code Interpreter engines:
      - Change engine from pyodide to jupyter
      - Set Jupyter URL to http://host.docker.internal:8888
@@ -78,36 +78,5 @@ Before you begin, ensure you have the following installed:
 
 ## Usage
 
-[Explain how to use the application, including:]
-- Basic workflow
-- Common use cases
-- Example commands or operations
-- Screenshots (if applicable)
-
-## Development
-
-[Include information about:]
-- How to set up the development environment
-- Coding standards
-- Testing procedures
-- Build process
-
-## Contributing
-
-[Explain how others can contribute to the project:]
-- Contribution guidelines
-- Pull request process
-- Code review process
-- Development workflow
-
-## License
-
-[Specify the license under which your project is distributed]
-
-## Support
-
-[Provide information about:]
-- Where to get help
-- How to report issues
-- Contact information
-- Documentation links
+1. Start a new chat in Open WebUI, and submit a prompot to generate a Python script that prints something to the terminal, like current working directory.
+2. In the code cell in the top right, click `Run` and the code should execute and return the result below the code cell.
